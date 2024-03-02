@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTimer } from "react-timer-hook";
 
 interface TimerProps {
@@ -19,7 +19,6 @@ function MyTimer({ expiryTimestamp }) {
     expiryTimestamp,
     onExpire: () => console.warn("onExpire called"),
   });
-  console.log(seconds);
 
   return (
     <div style={{ textAlign: "center" }}>
@@ -43,12 +42,16 @@ function MyTimer({ expiryTimestamp }) {
   );
 }
 
-const Timer: React.FC<TimerProps> = ({ timeSec }) => {
+const Timer: React.FC = () => {
+  const [timing, setTiming] = useState(30);
   const time = new Date();
-  time.setSeconds(time.getSeconds() + timeSec);
+  time.setSeconds(time.getSeconds() + timing);
 
   return (
     <div>
+      <button onClick={() => setTiming(30)}>30 sec</button>
+      <button onClick={() => setTiming(60)}>1 min</button>
+      <button onClick={() => setTiming(120)}>2 mins</button>
       <MyTimer expiryTimestamp={time} />
     </div>
   );
