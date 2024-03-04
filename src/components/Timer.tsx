@@ -49,10 +49,12 @@ const Timer: React.FC = () => {
 
   return (
     <div>
-      <button onClick={() => setTiming(30)}>30 sec</button>
-      <button onClick={() => setTiming(60)}>1 min</button>
-      <button onClick={() => setTiming(120)}>2 mins</button>
       <MyTimer expiryTimestamp={time} />
+      <div style={{ textAlign: "center", marginTop: "7px" }}>
+        <button onClick={() => setTiming(30)}>30 sec</button>
+        <button onClick={() => setTiming(60)}>1 min</button>
+        <button onClick={() => setTiming(120)}>2 mins</button>
+      </div>
     </div>
   );
 };
