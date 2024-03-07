@@ -49,9 +49,13 @@ const GenerateWords = () => {
 
   return (
     <div>
+      <input
+        type="text"
+        onKeyDown={(e) => handle(e)}
+        style={{ zIndex: "-99" }}
+      />
       {word1} {word2} {word3} {word4} {word5} {word6} {word7} {word8} {word9}{" "}
       {word10}
-      <input type="text" onKeyDown={(e) => handle(e)} />
     </div>
   );
 };
